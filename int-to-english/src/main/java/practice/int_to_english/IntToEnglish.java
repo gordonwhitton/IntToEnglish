@@ -40,8 +40,10 @@ public class IntToEnglish {
 		case 6: // e.g. 100'000
 			return getThousandsString(split);
 		case 7:
-
+			return getMillions(split);
 		case 8:
+			
+		case 9:
 
 		default:
 			// this should never happen
@@ -58,11 +60,43 @@ public class IntToEnglish {
 
 
 
+	private static String getMillions(int[] split) {
+		// TODO Auto-generated method stub
+		
+		StringBuilder millionsValue = new StringBuilder();
+		
+		millionsValue.append(NOUGHTS[split[MILLIONS_INDEX]]);
+
+		millionsValue.append(" ");
+		millionsValue.append(MILLION);
+		
+		appendRestOfThousands(split, millionsValue);
+		
+		return millionsValue.toString();
+	}
+
+
+
+
+
+	private static void appendRestOfThousands(int[] split,
+			StringBuilder millionsValue) {
+		if(split[HUNDRED_THOUSANDS_INDEX] == 0 && split[TEN_THOUSANDS_INDEX] == 0 && split[THOUSANDS_INDEX]== 0){
+			
+			appendRestOfHundreds(split, millionsValue);
+		} else {
+
+			millionsValue.append(" ");
+			millionsValue.append(getThousandsString(split));
+			
+		}
+	}
+
 	private static String getThousandsString(int[] split) {
 		
 		StringBuilder thousandsValue = new StringBuilder();
 		
-		if(split.length == HUNDRED_THOUSANDS_INDEX + 1 && split[HUNDRED_THOUSANDS_INDEX] != 0){
+		if(split.length >= HUNDRED_THOUSANDS_INDEX + 1 && split[HUNDRED_THOUSANDS_INDEX] != 0){
 			int[] hundreds = new int[]{split[THOUSANDS_INDEX], split[TEN_THOUSANDS_INDEX], split[HUNDRED_THOUSANDS_INDEX]};
 			thousandsValue.append(getHundredsString(hundreds));
 		} else if(split.length >= TEN_THOUSANDS_INDEX  + 1 && split[TEN_THOUSANDS_INDEX] != 0){
@@ -77,6 +111,17 @@ public class IntToEnglish {
 
 		//thousands doesn't know if it is getting hundreds or tens
 
+		appendRestOfHundreds(split, thousandsValue);
+
+		return thousandsValue.toString();
+	}
+
+
+
+
+
+	private static void appendRestOfHundreds(int[] split,
+			StringBuilder thousandsValue) {
 		if(split[HUNDREDS_INDEX] != 0){
 			thousandsValue.append(" ");
 			thousandsValue.append(getHundredsString(split));
@@ -89,8 +134,6 @@ public class IntToEnglish {
 				thousandsValue.append(tens);
 			}
 		}
-
-		return thousandsValue.toString();
 	}
 
 	private static String getHundredsString(int[] split) {  //TODO return StringBuilder instead
@@ -148,6 +191,7 @@ public class IntToEnglish {
 
 	private static final String HUNDRED = "hundred";
 	private static final String THOUSAND = "thousand";
+	private static final String MILLION = "million";
 
 	private static final int NOUGHTS_INDEX = 0;
 	private static final int TENS_INDEX = 1;
