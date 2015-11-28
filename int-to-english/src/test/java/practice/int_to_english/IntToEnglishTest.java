@@ -289,6 +289,134 @@ public class IntToEnglishTest {
 	}
 	
 	@Test
+	public void testThousands1() {
+		String expected = "one thousand";
+		String actual = IntToEnglish.toEnglish(1000);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testThousands2() {
+		String expected = "one thousand and one";
+		String actual = IntToEnglish.toEnglish(1001);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testThousands3() {
+		String expected = "one thousand and fourteen";
+		String actual = IntToEnglish.toEnglish(1014);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testThousands4() {
+		String expected = "one thousand and fifty nine";
+		String actual = IntToEnglish.toEnglish(1059);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testThousands5() {
+		String expected = "one thousand one hundred and three";
+		String actual = IntToEnglish.toEnglish(1103);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testThousands6() {
+		String expected = "one thousand four hundred and ninety one";
+		String actual = IntToEnglish.toEnglish(1491);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testThousands7() {
+		String expected = "four thousand six hundred and six";
+		String actual = IntToEnglish.toEnglish(4606);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testThousands8() {
+		String expected = "six thousand and ninety nine";
+		String actual = IntToEnglish.toEnglish(6099);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testThousands9() {
+		String expected = "nine thousand three hundred and seventy six";
+		String actual = IntToEnglish.toEnglish(9376);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testTenThousands1() {
+		String expected = "ten thousand";
+		String actual = IntToEnglish.toEnglish(10000);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testTenThousands2() {
+		String expected = "eleven thousand and four";
+		String actual = IntToEnglish.toEnglish(11004);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testTenThousands3() {
+		String expected = "fourteen thousand three hundred and fifty two";
+		String actual = IntToEnglish.toEnglish(14352);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testTenThousands4() {
+		String expected = "thirty thousand six hundred and eleven";
+		String actual = IntToEnglish.toEnglish(30611);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testTenThousands5() {
+		String expected = "sixty two thousand and forty five";
+		String actual = IntToEnglish.toEnglish(62045);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testTenThousands6() {
+		String expected = "seventy nine thousand seven hundred and sixty four";
+		String actual = IntToEnglish.toEnglish(79764);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testTenThousands7() {
+		String expected = "ninety six thousand one hundred and four";
+		String actual = IntToEnglish.toEnglish(96104);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
 	public void test() {
 //		fail("Not yet implemented"); // TODO
 	}

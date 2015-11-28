@@ -29,16 +29,15 @@ public class IntToEnglish {
 
 		switch(split.length){
 
-		case 1:
+		case 1: // e.g. 5
 			return getNoughtsString(split);
-		case 2:
+		case 2: // e.g. 21
 			return getTensString(split);
-		case 3:
+		case 3: // e.g. 256
 			return getHundredsString(split);
-		case 4:
+		case 4: //e.g. 2100
+		case 5: //e.g. 90'000
 			return getThousandsString(split);
-		case 5:
-
 		case 6:
 
 		case 7:
@@ -58,10 +57,19 @@ public class IntToEnglish {
 
 
 
-	private static String getThousandsString(int[] split) {
 
+
+	private static String getThousandsString(int[] split) {
+		
 		StringBuilder thousandsValue = new StringBuilder();
-		thousandsValue.append(NOUGHTS[split[THOUSANDS_INDEX]]);
+		
+		if(split.length == TEN_THOUSANDS_INDEX  + 1 && split[TEN_THOUSANDS_INDEX] != 0){
+			int[] tens = new int[]{split[THOUSANDS_INDEX], split[TEN_THOUSANDS_INDEX]};
+			thousandsValue.append(getTensString(tens));
+		} else {
+			thousandsValue.append(NOUGHTS[split[THOUSANDS_INDEX]]);
+		}
+		
 		thousandsValue.append(" ");
 		thousandsValue.append(THOUSAND);
 
@@ -101,7 +109,7 @@ public class IntToEnglish {
 	}
 
 	private static String getTensString(int[] split) {
-
+		
 		if(split[TENS_INDEX] == 0){
 			return getNoughtsString(split);
 		}
@@ -111,11 +119,8 @@ public class IntToEnglish {
 		} else {
 			StringBuilder tensValue = new StringBuilder();
 			tensValue.append(TENS[split[TENS_INDEX] - 2]); //subtract two, since tens[0] == twenty etc
-
-			//if(split[NOUGHTS_INDEX] != 0){ //since we don't say "twenty zero" etc
 			tensValue.append(" ");
 			tensValue.append(getNoughtsString(split));
-			//}
 			return tensValue.toString().trim();
 		}
 	}
@@ -152,5 +157,3 @@ public class IntToEnglish {
 	private static final int TEN_MILLIONS_INDEX = 7;
 	private static final int HUNDRED_MILLIONS_INDEX = 8;
 }
-
-
