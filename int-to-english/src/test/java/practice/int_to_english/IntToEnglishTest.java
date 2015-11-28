@@ -417,6 +417,62 @@ public class IntToEnglishTest {
 	}
 	
 	@Test
+	public void testHundredThousands1() {
+		String expected = "one hundred thousand";
+		String actual = IntToEnglish.toEnglish(100000);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testHundredThousands2() {
+		String expected = "one hundred and eleven thousand and four";
+		String actual = IntToEnglish.toEnglish(111004);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testHundredThousands3() {
+		String expected = "two hundred and fourteen thousand three hundred and fifty two";
+		String actual = IntToEnglish.toEnglish(214352);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testHundredThousands4() {
+		String expected = "four hundred and thirty thousand six hundred and eleven";
+		String actual = IntToEnglish.toEnglish(430611);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testHundredThousands5() {
+		String expected = "five hundred and sixty two thousand and forty five";
+		String actual = IntToEnglish.toEnglish(562045);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testHundredThousands6() {
+		String expected = "six hundred and seventy nine thousand seven hundred and sixty four";
+		String actual = IntToEnglish.toEnglish(679764);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
+	public void testHundredThousands7() {
+		String expected = "eight hundred and ninety six thousand one hundred and four";
+		String actual = IntToEnglish.toEnglish(896104);
+		String errorMessage = "expected : " + expected + " : actual : " + actual;
+		Assert.assertTrue(errorMessage, actual.contentEquals(expected));
+	}
+	
+	@Test
 	public void test() {
 //		fail("Not yet implemented"); // TODO
 	}

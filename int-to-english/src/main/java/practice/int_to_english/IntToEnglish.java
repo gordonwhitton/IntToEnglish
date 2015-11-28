@@ -29,17 +29,16 @@ public class IntToEnglish {
 
 		switch(split.length){
 
-		case 1: // e.g. 5
+		case 1: // e.g. 1
 			return getNoughtsString(split);
-		case 2: // e.g. 21
+		case 2: // e.g. 10
 			return getTensString(split);
-		case 3: // e.g. 256
+		case 3: // e.g. 100
 			return getHundredsString(split);
-		case 4: //e.g. 2100
-		case 5: //e.g. 90'000
+		case 4: // e.g. 100
+		case 5: // e.g. 10'000
+		case 6: // e.g. 100'000
 			return getThousandsString(split);
-		case 6:
-
 		case 7:
 
 		case 8:
@@ -63,7 +62,10 @@ public class IntToEnglish {
 		
 		StringBuilder thousandsValue = new StringBuilder();
 		
-		if(split.length == TEN_THOUSANDS_INDEX  + 1 && split[TEN_THOUSANDS_INDEX] != 0){
+		if(split.length == HUNDRED_THOUSANDS_INDEX + 1 && split[HUNDRED_THOUSANDS_INDEX] != 0){
+			int[] hundreds = new int[]{split[THOUSANDS_INDEX], split[TEN_THOUSANDS_INDEX], split[HUNDRED_THOUSANDS_INDEX]};
+			thousandsValue.append(getHundredsString(hundreds));
+		} else if(split.length >= TEN_THOUSANDS_INDEX  + 1 && split[TEN_THOUSANDS_INDEX] != 0){
 			int[] tens = new int[]{split[THOUSANDS_INDEX], split[TEN_THOUSANDS_INDEX]};
 			thousandsValue.append(getTensString(tens));
 		} else {
