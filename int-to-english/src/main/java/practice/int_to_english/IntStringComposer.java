@@ -2,16 +2,18 @@ package practice.int_to_english;
 
 public class IntStringComposer {
 
+	// unit tested by IntToEnglishTest.java
+
 	private static final String[] NOUGHTS = { "zero",
-			"one", "two", "three", "four", "five", "six",
-			"seven", "eight", "nine" };
+		"one", "two", "three", "four", "five", "six",
+		"seven", "eight", "nine" };
 	private static final String[] TEENS = { "ten",
-			"eleven", "twelve", "thirteen", "fourteen",
-			"fifteen", "sixteen", "seventeen", "eighteen",
-			"nineteen" };
+		"eleven", "twelve", "thirteen", "fourteen",
+		"fifteen", "sixteen", "seventeen", "eighteen",
+	"nineteen" };
 	private static final String[] TENS = { "twenty",
-			"thirty", "forty", "fifty", "sixty", "seventy",
-			"eighty", "ninety" };
+		"thirty", "forty", "fifty", "sixty", "seventy",
+		"eighty", "ninety" };
 
 	private static final String HUNDRED = "hundred";
 	private static final String THOUSAND = "thousand";
@@ -75,7 +77,7 @@ public class IntStringComposer {
 					split[TEN_MILLIONS_INDEX],
 					split[HUNDRED_MILLIONS_INDEX] };
 			millionsValue
-					.append(getHundredsString(hundreds));
+			.append(getHundredsString(hundreds));
 		} else if (split.length >= TEN_MILLIONS_INDEX + 1
 				&& split[TEN_MILLIONS_INDEX] != 0) {
 			final int[] tens = new int[] {
@@ -84,7 +86,7 @@ public class IntStringComposer {
 			millionsValue.append(getTensString(tens));
 		} else {
 			millionsValue
-					.append(NOUGHTS[split[MILLIONS_INDEX]]);
+			.append(NOUGHTS[split[MILLIONS_INDEX]]);
 		}
 
 		millionsValue.append(" ");
@@ -133,7 +135,7 @@ public class IntStringComposer {
 					split[TEN_THOUSANDS_INDEX],
 					split[HUNDRED_THOUSANDS_INDEX] };
 			thousandsValue
-					.append(getHundredsString(hundreds));
+			.append(getHundredsString(hundreds));
 		} else if (split.length >= TEN_THOUSANDS_INDEX + 1
 				&& split[TEN_THOUSANDS_INDEX] != 0) {
 			final int[] tens = new int[] {
@@ -142,7 +144,7 @@ public class IntStringComposer {
 			thousandsValue.append(getTensString(tens));
 		} else {
 			thousandsValue
-					.append(NOUGHTS[split[THOUSANDS_INDEX]]);
+			.append(NOUGHTS[split[THOUSANDS_INDEX]]);
 		}
 
 		thousandsValue.append(" ");
@@ -188,7 +190,7 @@ public class IntStringComposer {
 
 		final StringBuilder hundredsValue = new StringBuilder();
 		hundredsValue
-				.append(NOUGHTS[split[HUNDREDS_INDEX]]);
+		.append(NOUGHTS[split[HUNDREDS_INDEX]]);
 		hundredsValue.append(" ");
 		hundredsValue.append(HUNDRED);
 
